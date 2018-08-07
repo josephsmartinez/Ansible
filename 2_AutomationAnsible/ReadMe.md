@@ -113,19 +113,55 @@ PlayBook (Mapping)
                 become: true
                 roles:
                 - { role: base, ssl ... }
-            
+</p><br>
+<p>
+Code Organization Strategies
     
+    Best Practices https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
+</p><br>
+<p>
+Introduction Use Case - DevOps Demo App
 
+    Php Web Application
         
-    
-</p><br>
-<p>
-   
-   
-   
+        Load Balancer
+        
+        Application
+            php
+            app
+            apache
+        
+        DataBase
+            mySql
+            
+    ansible-repo
+    |
+    |---------- environments
+    |   |--dev
+    |   |--prod
+    | 
+    |
+    |---------- group-vars
+    |   |--prod
+    |   |--dev
+    |   |--all
+    |
+    |---------- roles
+    |   |--php
+    |   |--apache
+    |   |--mysql
+    |   |--hproxy
+    |   |--systems
+    |
+    |---site.yml
+    |---app.yml             PLAYS
+    |---db.yml
+    |---lb.yml
+    |---systems.yml
+    |---update.yml
+    |---ansible.cfg
 </p><br>
 
-<p>
-  
-  ...
-</p><br>
+
+
+
