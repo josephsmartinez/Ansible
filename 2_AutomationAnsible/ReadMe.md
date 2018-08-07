@@ -134,6 +134,8 @@ Introduction Use Case - DevOps Demo App
         DataBase
             mySql
             
+    Example Code Structure
+    
     ansible-repo
     |
     |---------- environments
