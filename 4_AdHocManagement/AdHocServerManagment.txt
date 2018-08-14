@@ -1,0 +1,177 @@
+Ad Hoc Server Management with Ansible
+
+Configuration Ansible
+
+  Default Path:
+
+    /etc/ansible/andible.cfg
+
+    Follow 'ini' style configurations
+    Contains [blocks] of configurations with
+    key = value pairs
+
+  CONFIGS
+
+  Configuration file can be created from other paths
+  too (e.g. 'home','dir','current dir')
+
+    ~/ansible.cfg
+    ./ansible.cfg
+
+  'ANSIBLE_CONFIG' environment variable can be used to
+  define configurations path
+
+  Parameters can be 'overridden' in 'ansible-playbook' or
+  with 'command line flags'.
+
+  Precedence Level
+
+    How ansible knows how to pick which configurations
+    to pick.
+
+    CONFIG FILES PRECEDENCE
+    ^
+    | p1 command line flags
+    | p2 ANSIBLE_CONFIG
+    | p3 ./ansible.cfg
+    | p4 ~/.ansible.cfg
+    | p5 /etc/ansible/ansible.cfg
+
+  GOOD NEWS
+
+    This make sharing, changing, switching base the project
+
+    - Overrides defaults
+    - Revision controlled
+    - Switching configuration for each project
+
+    Best Practice: Its a good idea to create projects
+    specific configurations inside your workspace
+
+  Some useful commands
+
+    Current active configuration and PATH
+    # ansible --version
+
+    List view and dumb integration
+    # ansible-config
+
+    Current configurations
+    # ansible-config view
+
+    Complete configuration added. Orange are custom packages
+    # ansible-config dump
+
+    Configuration about the Parameters
+    # ansible-config list
+
+Defining a static inventory
+
+  List of serves ansible is to manage
+  Think of /etc/hosts file
+
+    ini format
+
+  EXAMPLE FORMAT
+
+    [app]
+    app-01.br.example.org         ---Host Groups
+    app-02.br.example.org
+    app-01.bom.example.org
+    app-02.bom.example.org
+
+    [db]
+    db-01.br.example.org          -- Connection string/host
+    db-01.bom.example.org
+
+    [bir:children]
+    app                           --Group of groups
+    db
+
+    INVENTORY
+
+      Could Contain
+        HOST
+        GROUP
+        CONNECTION PARAMETERS
+        HOSTVARS
+        GROUPVARS
+
+  EXAMPLE WITH PARAMETERS and VARIABLES
+
+        [app]
+        app-01.br.example.org
+        app-02.br.example.org   ansible_user=vargrant
+        app-01.bom.example.org
+        app-02.bom.example.org  apache_port=8080 max_connection-400
+
+        [db]
+        db-01.br.example.org    ansible_user=centos
+        db-01.bom.example.org
+
+        [bir:children]
+        app
+        db
+
+  SSH CONNECTION OPTIONS
+
+    ansible_host
+
+      The name of the host connect to different from
+      the alias you wish to give to it.
+
+    ansible_port
+
+      The ssh port number, if not 22
+
+    ansible_user
+
+      The default shh user name to use
+
+    ansible_ssh_pass
+
+      The ssh password to use (this is insecure, we
+      strongly recommend using --ask-pass or SHH keys)
+
+  TWO TYPE OF INVENTORIES
+
+    Static and Dynamic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Host Pattern and Ad Hoc Commands
+
+Modules and Desired State Configuration
+
+Invoking Modules Idempotence
+
+Using Common Modules
+
+Command Modules and Idempotence
+
+Using Ansible-Console REPL Shell
