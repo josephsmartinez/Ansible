@@ -138,29 +138,46 @@ Defining a static inventory
     Static and Dynamic
 
 
+  Example
+
+  # Create directory to hold env spec. host
+  # Creating Inventory
+
+  [local]
+  localhost ansible_connection=local
+
+  [lb]
+  lb
+
+  [app]
+  app1
+  app2
+
+  [db]
+  db
+
+  [prod:children]
+  lb
+  app
+
+  SETTING UP SSH
+
+    Ansible works over ssh transport, instead of creating its
+    own transport.
+
+      1) Generating SSH keys on control node
+          ssh-keygen -t rsa
+
+      2) Copy SSH Pub Key to All Inventory Hosts
+          ssh-copy-id user@host
+
+      3) Validate Password Login
+        ssh user@host
 
 
+  SAY HELLO TO NODES
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # ansible all -m ping
 
 
 
