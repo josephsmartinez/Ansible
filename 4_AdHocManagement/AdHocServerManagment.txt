@@ -284,11 +284,52 @@ Modules and Desired State Configuration
     Windows, Inventory, Messaging, etc...
 
     Total number of available modules
-      # ansible-doc --list | wc -l 
+      # ansible-doc --list | wc -l
+
+  MODULES TYPES
+
+    Core
+      - Maintained by ansible team
+      - Always be shipped with ansible
+
+    Extras
+      - Maintained by community
+      - Currently shipped with ansible
+      - May be shipped separately in the
+        future
 
 ------------------------------------------------------
 
 Invoking Modules Idempotence
+
+  TWO WAY TO USE MODULES
+
+    1) Command Line
+    # ansible app -m yum -s -a "name=ntp state=installed"
+
+    2) Playbooks
+      Modules can be called while writing task as
+      'Playbooks' using 'YAML'
+
+      NOTE: You do not need write module in Python only,
+      it can be written in other languages as long as
+      the format 'input & output' is written in a way that
+      ansible understands
+
+    FINDING INFORMATION
+
+      # ansible-doc --help
+      # ansible-doc user | grep [Option]
+      # ansible-doc -s user
+
+    INVOKING A MODULE
+
+      # ansible [node] -s -m yum -a "name-vim state=present"
+
+    NOTE: You must run these commands within the project folder
+
+    
+
 
 Using Common Modules
 
