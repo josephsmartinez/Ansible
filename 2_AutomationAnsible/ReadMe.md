@@ -57,23 +57,23 @@ Application Tree
         - You will make a role for every application with in the infrastructure. 
         - Roles shoud be complety idenpendent of each other to extened them to other projects.
    
-   Role
-   |
-   |-------- Java
-   |-------- Tomcat
-   |-------- MySql
-   |-------- MongoDB
-   |
-   | app1____ Task
-                |----- ta1.yaml
-            |   |----- ta2.yaml
-            |
-            |Files
-            |   |---- f1
-            |   |---- f2
-            |
-            |Vars
-                |---- Main.yml
+       Role
+       |
+       |-------- Java
+       |-------- Tomcat
+       |-------- MySql
+       |-------- MongoDB
+       |
+       | app1____ Task
+                    |----- ta1.yaml
+                |   |----- ta2.yaml
+                |
+                |Files
+                |   |---- f1
+                |   |---- f2
+                |
+                |Vars
+                    |---- Main.yml
                 
                 
 Inventory 
