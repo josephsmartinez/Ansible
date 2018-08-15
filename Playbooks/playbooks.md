@@ -24,12 +24,14 @@
     become: true
     tasks
       - package: name=apache state=present
-      - copy: name=ntp.conf src=file/ntp.conf destination
+      - copy: name=ntp.conf src=file/ntp.conf dest=/etc/ntp.conf
       - user: name=dojo state=present
   ...
   ```
   
-   ### List and Dictionaries
+   ### Styles: Line folding Vs Indentation
+   
+   Line Folding (Read the file as one line)
    ```
   ---
   - name: configure app hosts
@@ -37,10 +39,44 @@
     become: true
     tasks
       - package: name=apache state=present
-      - copy: name=ntp.conf src=file/ntp.conf destination
-      - user: name=dojo state=present
+      
+      - copy: >
+          name=ntp.conf 
+          src=file/ntp.conf 
+          dest=/etc/ntp.conf
+      
+      - user: | 
+          name=dojo
+          uid=5001
+          home=/home/dojo
+          state=present
   ...
   ```
+  
+  Non-Line Folding
+  ```
+  ---
+  - name: configure app hosts
+    host: app
+    become: true
+    tasks
+      - package: name=apache state=present
+      
+      - copy: 
+          name=ntp.conf 
+          src=file/ntp.conf 
+          dest=/etc/ntp.conf
+      
+      - user: 
+          name=dojo
+          uid=5001
+          home=/home/dojo
+          state=present
+  ...
+  ```
+  
+  
+  
 
 ## Anatomy of a Playbook
 
