@@ -330,83 +330,16 @@ Invoking Modules Idempotence
 
 Using Common Modules
 
+  Lab 1 Solution
   # ansible prod -m group -b -a 'name=admin state=present gid=7045'
 
+  Lab 2 Solution
   # ansible 'prod:!db' -m user -b -a 'name=abc state=present uid=7045 group=admin'
+
+  Lab 3 Solition
+  # ansible app -m copy -a 'src=test.txt dest=/tmp/test.txt mode=0644'
+
 
 Command Modules and Idempotence
 
-CANT FIND MODULE
-  There are situations where you may not find the module to take action. 
-  
-  - install an application from source
-  - call an API for which there is no module
-  - calling a rudy installer script for a third party application 
-  
- COMMAND MODULES 
- 
-  raw
-    - bypass modules subsystem and execute raw ssh command
-  
-  command
-    - execute a command on a remote node without shell
-  
-  shell
-    - execute a command on a remote node with /bin/sh
-  
-  script
-    - copy a the remote node and also execute it
-  
-  except
-    - execute a interactive command and auto respond to prompts
-    
-   COMMAND
-   
-    - does not use shell
-    - does not have access to env
-    - < > | ; & operator will not work
-    - secure and recommended
-    
-   SHELL  <---- Use only when need with more flexability comes less security
-   
-    - invokes /bin/sh
-    - has access to env, variable etc
-    - < > | ; & operators will work
-    - use selectively 
-    
-    COMMAND: SHELL AND MODULES
-    
-      # ansible app -m command -a "free"
-      # ansible app -m command -a "free | grep -i swap"
-      # ansible app -m command -a "free" | grep -i swap
-      # ansible app -m shell -a "free"
-  
-   RAW: Best use when Python is not installed
-   
-   # ansible app -vvvv -m raw -a "free | grep -i swap"
-   # ansible app -vvvv -m -shell -a "free | grep -i swap"
-   
-   
-  MAKING COMMAND IDEMPOTENT
-  
-    creates
-      - creates is a parameters/argument to the command modules
-      
-     Example: 
-     
-      Command is not idempotent if ran twice
-      # ansible app -m command -a "mkdir /tmp/dir1"
-      
-      Adding creates make the command idempotent
-      # ansible app -m command -a "mkdir /tmp/dir1 creates=/tmp/dir1"
-      
-
 Using Ansible-Console REPL Shell
-
-  # ansible-console --help
- 
-  Log into the REPL Shell
-  NOTE: Password => password
-  # ansible-console -b
-  
-  # list-host

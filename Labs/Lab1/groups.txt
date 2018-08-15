@@ -27,3 +27,17 @@ Problem Statement 2
   uid = present
   group = admin
   host pattern ='prod:!db' #all nodes, just not database
+
+Problem Statement 3
+
+  Copy a file
+    - whose name is 'test.txt'
+    - to all app servers
+    - at path /tmp/test.txt
+    - whose permission are set to 644
+
+    module:copy
+      src=test.txt
+      dest=/tmp/test.txt
+      mode=644
+      host pattern=app
