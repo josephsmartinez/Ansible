@@ -402,3 +402,11 @@ CANT FIND MODULE
       
 
 Using Ansible-Console REPL Shell
+
+  # ansible-console --help
+ 
+  Log into the REPL Shell
+  NOTE: Password => password
+  # ansible-console -b
+  
+  # list-host
