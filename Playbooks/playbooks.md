@@ -1,15 +1,15 @@
-##YAML Primer
+## YAML Primer
 
 
-##Anatomy of a Playbook
+## Anatomy of a Playbook
 
-##Writing a Playbook
+## Writing a Playbook
 
-##Validating and Applying Ansible Playbook
+## Validating and Applying Ansible Playbook
 
-##Troubleshooting Playbooks Failures
+## Troubleshooting Playbooks Failures
 
-##Adding another play for app servers
+## Adding another play for app servers
 
-##Nano Project: Create a playbook to deploy a static site
+## Nano Project: Create a playbook to deploy a static site
 
