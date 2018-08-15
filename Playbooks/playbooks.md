@@ -75,7 +75,28 @@
   ...
   ```
   
+  ### EXAMPLE USING A SHOPPING LIST :)
   
+  ```
+  ---
+  - name: shopping list
+    host: vegetables
+    become: true
+    tasks
+      - package: name=apache state=present
+      
+      - copy: 
+          name=ntp.conf 
+          src=file/ntp.conf 
+          dest=/etc/ntp.conf
+      
+      - user: 
+          name=dojo
+          uid=5001
+          home=/home/dojo
+          state=present
+  ...
+  ```
   
 
 ## Anatomy of a Playbook
