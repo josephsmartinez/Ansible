@@ -328,10 +328,12 @@ Invoking Modules Idempotence
 
     NOTE: You must run these commands within the project folder
 
-    
-
-
 Using Common Modules
+
+  # ansible prod -m group -b -a 'name=admin state=present gid=7045'
+
+  # ansible 'prod:!db' -m user -b -a 'name=abc state=present uid=7045 group=admin'
+
 
 Command Modules and Idempotence
 
