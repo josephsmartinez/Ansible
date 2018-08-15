@@ -1,5 +1,18 @@
 ## YAML Primer
 
+  ### YAML Primer
+  - Begin / End Tags
+  - List
+  - Dictionaries
+  - Indentation
+  - Line Foldings
+  
+  Common YAML format
+  """
+  # This is a YAML Document
+  - list item 1
+  - list item 2
+  """
 
 ## Anatomy of a Playbook
 
