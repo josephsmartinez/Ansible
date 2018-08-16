@@ -8,91 +8,91 @@
   - Line Foldings
 
 ### Common YAML format
-  ```
-  ---
-  # This is a YAML Document
-  - list item 1
-  - list item 2
-  ...
-  ```
+```
+---
+# This is a YAML Document
+- list item 1
+- list item 2
+...
+```
 
 ### List and Dictionaries
-  ```
-  ---
-  - name: configure app hosts
-    host: app
-    become: true
-    tasks
-      - package: name=apache state=present
-      - copy: name=ntp.conf src=file/ntp.conf dest=/etc/ntp.conf
-      - user: name=dojo state=present
-  ...
-  ```
+```
+---
+- name: configure app hosts
+  host: app
+  become: true
+  tasks
+    - package: name=apache state=present
+    - copy: name=ntp.conf src=file/ntp.conf dest=/etc/ntp.conf
+    - user: name=dojo state=present
+...
+```
 
 ## Styles: Line folding Vs Indentation
 ### Line Folding (Read the file as one line)
-   ```
-   ---
-    - name: configure app hosts
-      host: app
-      become: true
-      tasks
-        - package: name=apache state=present
+```
+---
+- name: configure app hosts
+  host: app
+  become: true
+  tasks
+    - package: name=apache state=present
 
-        - copy: >
-            name=ntp.conf
-            src=file/ntp.conf
-            dest=/etc/ntp.conf
+    - copy: >
+        name=ntp.conf
+        src=file/ntp.conf
+        dest=/etc/ntp.conf
 
-        - user: |
-            name=dojo
-            uid=5001
-            home=/home/dojo
-            state=present
-    ...
-    ```
+    - user: |
+        name=dojo
+        uid=5001
+        home=/home/dojo
+        state=present
+...
+```
 ### Non-Line Folding
-    ```
-    ---
-    - name: configure app hosts
-      host: app
-      become: true
-      tasks
-        - package: name=apache state=present
+```
+---
+- name: configure app hosts
+  host: app
+  become: true
+  tasks
+    - package: name=apache state=present
 
-        - copy:
-            name=ntp.conf
-            src=file/ntp.conf
-            dest=/etc/ntp.conf
+    - copy:
+        name=ntp.conf
+        src=file/ntp.conf
+        dest=/etc/ntp.conf
 
-        - user:
-            name=dojo
-            uid=5001
-            home=/home/dojo
-            state=present
-    ...
-    ```
+    - user:
+        name=dojo
+        uid=5001
+        home=/home/dojo
+        state=present
+...
+```
 
 ### EXAMPLE USING A SHOPPING LIST :)
-      ```
-      ---
-      - name: shopping list
-        type: vegetables
-        location: vegetables vendor outside hardware shop
-        priority: 1
-        items:
-          - onions:
-              size: small
-              shape: round
-              color: red
-              qty: 1.5kg
+```
+---
+- name: shopping list
+  type: vegetables
+  location: vegetables vendor outside hardware shop
+  priority: 1
+  items:
+    - onions:
+        size: small
+        shape: round
+        color: red
+        qty: 1.5kg
 
-          - apple:
-              size: small
-              color: green
-              qty: 10
-      ...
-      ```
+    - apple:
+        size: small
+        color: green
+        qty: 10
+...
+```
 ## Anatomy of a Playbook
 
 ### Plays Structure
@@ -103,25 +103,25 @@
 - vars
 - task
 
-    ```
-    ---
-    name: App Server Configurations
-      host: app
-      become: true
-      become_user: admin
-      become_method: sudo
-      vars:
-        apache_port: 8080
-        max_connection = 4000
-        ntp_conf = /etc/ntp.conf
-      task:
-        - name: create app user
-          user: name=app state=present uid=5002
+```
+---
+name: App Server Configurations
+  host: app
+  become: true
+  become_user: admin
+  become_method: sudo
+  vars:
+    apache_port: 8080
+    max_connection = 4000
+    ntp_conf = /etc/ntp.conf
+  task:
+    - name: create app user
+      user: name=app state=present uid=5002
 
-        - name: install git
-          yum: name=tree state=present
-    ...
-    ```
+    - name: install git
+      yum: name=tree state=present
+...
+```
 
 ### Become
 "think sudo"
