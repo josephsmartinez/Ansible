@@ -29,9 +29,8 @@
   ...
   ```
 
-   ### Styles: Line folding Vs Indentation
-
-   Line Folding (Read the file as one line)
+   ## Styles: Line folding Vs Indentation
+   ###Line Folding (Read the file as one line)
     ```
     ---
     - name: configure app hosts
@@ -53,7 +52,7 @@
     ...
     ```
 
-    Non-Line Folding
+    ###Non-Line Folding
     ```
     ---
     - name: configure app hosts
