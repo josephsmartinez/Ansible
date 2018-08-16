@@ -1,4 +1,4 @@
-## YAML Primer
+# YAML Primer
 
 ### YAML Primer
   - Begin / End Tags
@@ -93,7 +93,7 @@
         qty: 10
 ...
 ```
-## Anatomy of a Playbook
+# Anatomy of a Playbook
 
 ### Plays Structure
 
@@ -128,17 +128,55 @@ name: App Server Configurations
 
 supports `sudo, su, pfexec, doas, pbrun, dzdo, ksu` and others
 
+### Tasks (Four Concepts to note)
+"Components of Plays which define the 'desired state'
+of action' on a system entity
+"
+"There is a 1-1 'mapping' between the task and the system entity managed"
+"Task invoke 'modules' which are encapsulated procedures to take 'action'"
+"'modules' are also called as 'task plugins'"
+
+###Task Styles
+
+Best practice is to provide documentation
+```
+- name: install ntp package
+  yum:  name=ntp  state=present
+```
+Ambiguous task
+```
+- yum: name=ntp state=present
+```
+Multi Line Tasks (non YAML)
+```
+- name: create dojo user
+  user: > or |
+    name=dojo
+    uid=5001
+    home=/home/dojo
+    state=present
+```
+
+Multi Line Tasks (YAML)
+```
+- name: create dojo user
+  user:
+    name: dojo
+    uid: 5001
+    home: /home/dojo
+    state: present
+```
+
+# Writing a Playbook
+PLEASE SEE LAB 2
+
+# Validating and Applying Ansible Playbook
+
+Command for testing and running **Playbooks**
+`ansible-playbook playbook.yml`
+`ansible-playbook system.yml --syntax-check`
 
 
-## Writing a Playbook
-
-
-
-
-## Validating and Applying Ansible Playbook
-
-## Troubleshooting Playbooks Failures
-
-## Adding another play for app servers
-
-## Nano Project: Create a playbook to deploy a static site
+# Troubleshooting Playbooks Failures
+# Adding another play for app servers
+# Nano Project: Create a playbook to deploy a static site
