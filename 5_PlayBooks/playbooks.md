@@ -32,48 +32,48 @@
    ### Styles: Line folding Vs Indentation
 
    Line Folding (Read the file as one line)
-   ```
-  ---
-  - name: configure app hosts
-    host: app
-    become: true
-    tasks
-      - package: name=apache state=present
+    ```
+    ---
+    - name: configure app hosts
+      host: app
+      become: true
+      tasks
+        - package: name=apache state=present
 
-      - copy: >
-          name=ntp.conf
-          src=file/ntp.conf
-          dest=/etc/ntp.conf
+        - copy: >
+            name=ntp.conf
+            src=file/ntp.conf
+            dest=/etc/ntp.conf
 
-      - user: |
-          name=dojo
-          uid=5001
-          home=/home/dojo
-          state=present
+        - user: |
+            name=dojo
+            uid=5001
+            home=/home/dojo
+            state=present
     ...
     ```
 
-  Non-Line Folding
-  ```
-  ---
-  - name: configure app hosts
-    host: app
-    become: true
-    tasks
-      - package: name=apache state=present
+    Non-Line Folding
+    ```
+    ---
+    - name: configure app hosts
+      host: app
+      become: true
+      tasks
+        - package: name=apache state=present
 
-      - copy:
-          name=ntp.conf
-          src=file/ntp.conf
-          dest=/etc/ntp.conf
+        - copy:
+            name=ntp.conf
+            src=file/ntp.conf
+            dest=/etc/ntp.conf
 
-      - user:
-          name=dojo
-          uid=5001
-          home=/home/dojo
-          state=present
-  ...
-  ```
+        - user:
+            name=dojo
+            uid=5001
+            home=/home/dojo
+            state=present
+    ...
+    ```
 
   ### EXAMPLE USING A SHOPPING LIST :)
 
