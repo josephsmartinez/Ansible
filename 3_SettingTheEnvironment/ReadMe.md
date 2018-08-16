@@ -1,32 +1,23 @@
-<h1>
-    Setting up the environment
-</h1><br>
-<p>
-    Code Space IO
+# Setting up the environment
+Code Space IO
 
-    Options:
+## Docker Commands
 
-        Local Host
+### Digital Ocean
+https://github.com/codespaces-io/codespaces
 
-        Digital Ocean
+### Start Containers
+`docker-compose up -d`
 
-    https://github.com/codespaces-io/codespaces
+### Stop all container
+`docker-compose stop`
 
-    Start Containers
-    # docker-compose up -d
+### Starting -> Stopping -> Removing Nodes
+- `docker-compose up -p [node name]`
 
-    Stop all container
-    # docker-compose stop
+- `docker-compose stop -p [node name]`
 
-    Starting -> Stopping -> Removing Nodes
+- `docker-compose rm [node name]`
 
-    # docker-compose up -p [node name]
-
-    # docker-compose stop -p [node name]
-
-    # docker-compose rm [node name]
-
-    Stop and removal all node
-    # docker-compose down
-
-</p><br>
+### Stop and removal all node
+- `docker-compose down`

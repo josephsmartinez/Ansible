@@ -174,17 +174,29 @@ PLEASE SEE LAB 2
 
 Command for testing and running **Playbooks**
 
+Applying the playbook
 - `ansible-playbook playbook.yml`
 
+Dry Run
+- `ansible-playbook playbook.yml --check`
+
+Step Debugging
+- `ansible-playbook playbook.yml --step`
+
+Syntax Checking
 - `ansible-playbook playbook.yml --syntax-check`
 
+Playbook help
 - `ansible-playbook --help`
 
+List Host to which this playbook applies
 - `ansible-playbook playbook.yml --list-host`
 
+List Tasks
 - `ansible-playbook playbook.yml --list-task`
 
-
+List Tags
+- `ansible-playbook playbook.yml --list-tag`
 
 # Troubleshooting Playbooks Failures
 # Adding another play for app servers
