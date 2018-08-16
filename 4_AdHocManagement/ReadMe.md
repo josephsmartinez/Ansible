@@ -49,19 +49,19 @@ specific configurations inside your workspace
 Some useful commands
 
 Current active configuration and PATH
-# ansible --version
+`ansible --version`
 
 List view and dumb integration
-# ansible-config
+`ansible-config`
 
 Current configurations
-# ansible-config view
+`ansible-config view`
 
 Complete configuration added. Orange are custom packages
-# ansible-config dump
+`ansible-config dump`
 
 Configuration about the Parameters
-# ansible-config list
+`ansible-config list`
 
 ------------------------------------------------------
 
