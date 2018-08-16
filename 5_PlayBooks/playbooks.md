@@ -1,13 +1,13 @@
 ## YAML Primer
 
-  ### YAML Primer
+### YAML Primer
   - Begin / End Tags
   - List
   - Dictionaries
   - Indentation
   - Line Foldings
 
-  ### Common YAML format
+### Common YAML format
   ```
   ---
   # This is a YAML Document
@@ -16,7 +16,7 @@
   ...
   ```
 
-  ### List and Dictionaries
+### List and Dictionaries
   ```
   ---
   - name: configure app hosts
@@ -29,10 +29,10 @@
   ...
   ```
 
-   ## Styles: Line folding Vs Indentation
-   ### Line Folding (Read the file as one line)
-    ```
-    ---
+## Styles: Line folding Vs Indentation
+### Line Folding (Read the file as one line)
+   ```
+   ---
     - name: configure app hosts
       host: app
       become: true
@@ -51,8 +51,7 @@
             state=present
     ...
     ```
-
-    ###Non-Line Folding
+### Non-Line Folding
     ```
     ---
     - name: configure app hosts
@@ -74,8 +73,7 @@
     ...
     ```
 
-  ### EXAMPLE USING A SHOPPING LIST :)
-
+### EXAMPLE USING A SHOPPING LIST :)
       ```
       ---
       - name: shopping list
@@ -95,15 +93,15 @@
               qty: 10
       ...
       ```
-  ## Anatomy of a Playbook
+## Anatomy of a Playbook
 
-  ### Plays Structure
+### Plays Structure
 
-    name
-    hosts
-    become
-    vars
-    task
+- name
+- hosts
+- become
+- vars
+- task
 
     ```
     ---
@@ -125,10 +123,10 @@
     ...
     ```
 
-    ### Become
-    "think sudo"
+### Become
+"think sudo"
 
-    supports `sudo, su, pfexec, doas, pbrun, dzdo, ksu` and others
+supports `sudo, su, pfexec, doas, pbrun, dzdo, ksu` and others
 
 
 
