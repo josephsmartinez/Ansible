@@ -173,9 +173,12 @@ PLEASE SEE LAB 2
 # Validating and Applying Ansible Playbook
 
 Command for testing and running **Playbooks**
-`ansible-playbook playbook.yml`
-`ansible-playbook system.yml --syntax-check`
 
+- `ansible-playbook playbook.yml`
+
+- `ansible-playbook system.yml --syntax-check`
+
+- `ansible-playbook --help`
 
 # Troubleshooting Playbooks Failures
 # Adding another play for app servers
