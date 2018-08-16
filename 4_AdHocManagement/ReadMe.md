@@ -48,19 +48,19 @@ specific configurations inside your workspace
 
 Some useful commands
 
-Current active configuration and PATH
+### Current active configuration and PATH
 `ansible --version`
 
-List view and dumb integration
+### List view and dumb integration
 `ansible-config`
 
-Current configurations
+### Current configurations
 `ansible-config view`
 
-Complete configuration added. Orange are custom packages
+### Complete configuration added. Orange are custom packages
 `ansible-config dump`
 
-Configuration about the Parameters
+### Configuration about the Parameters
 `ansible-config list`
 
 ------------------------------------------------------
@@ -114,17 +114,17 @@ Could Contain
 ```
 ## SSH CONNECTION OPTIONS
 
-**ansible_host**
+### ansible_host
 The name of the host connect to different from
 the alias you wish to give to it.
 
-**ansible_port**
+### ansible_port
 The ssh port number, if not 22
 
-**ansible_user**
+### ansible_user
 The default shh user name to use
 
-**ansible_ssh_pass**
+### ansible_ssh_pass
 The ssh password to use (this is insecure, we
 strongly recommend using --ask-pass or SHH keys)
 
@@ -153,16 +153,15 @@ lb
 app
 ```
 ## SETTING UP SSH
-
 Ansible works over ssh transport, instead of creating its own transport.
 
-1) Generating SSH keys on control node
+1. Generating SSH keys on control node
 `ssh-keygen -t rsa`
 
-2) Copy SSH Pub Key to All Inventory Hosts
+2. Copy SSH Pub Key to All Inventory Hosts
 `ssh-copy-id user@host`
 
-3) Validate Password Login
+3. Validate Password Login
 `ssh user@host`
 
 ## SAY HELLO TO NODES
