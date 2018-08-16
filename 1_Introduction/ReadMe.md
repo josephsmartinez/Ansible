@@ -1,22 +1,18 @@
-<h1>
-    Introduction to Ansible
-</h1><br>
-<p>
+# Introduction to Ansible
+
     DevOps
     
     Manual -> SysAdmins
     Scipts -> IT Automantion
     IaaC   -> DevOps (Infrastructre as a Service)
 
-</p><br>
-<p>
+
     1960s - Mainframes
     1970s - Personal Computers
     1980s - Client Server
     1990s - Web Enterprises
     2000s - Cloud
-</p><br>
-<p>
+
     Configuration Management
         - Salt Stack
         - Chef 
@@ -30,9 +26,7 @@
         - Terraform
         - Heat
         - Cloud Formation
-</p><br>
 
-<p>
     Ansible
     - Ad Hoc Server Management
     - Configuration Management
@@ -63,4 +57,3 @@
         - Containers
         - Collaboration Tools
         - Source Control
-</p><br>
