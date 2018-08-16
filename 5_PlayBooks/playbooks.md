@@ -176,9 +176,15 @@ Command for testing and running **Playbooks**
 
 - `ansible-playbook playbook.yml`
 
-- `ansible-playbook system.yml --syntax-check`
+- `ansible-playbook playbook.yml --syntax-check`
 
 - `ansible-playbook --help`
+
+- `ansible-playbook playbook.yml --list-host`
+
+- `ansible-playbook playbook.yml --list-task`
+
+
 
 # Troubleshooting Playbooks Failures
 # Adding another play for app servers
