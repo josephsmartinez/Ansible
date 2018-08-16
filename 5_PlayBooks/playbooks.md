@@ -17,7 +17,7 @@
   ```
 
   ### List and Dictionaries
-   ```
+  ```
   ---
   - name: configure app hosts
     host: app
@@ -30,7 +30,7 @@
   ```
 
    ## Styles: Line folding Vs Indentation
-   ###Line Folding (Read the file as one line)
+   ### Line Folding (Read the file as one line)
     ```
     ---
     - name: configure app hosts
