@@ -77,26 +77,26 @@
 
   ### EXAMPLE USING A SHOPPING LIST :)
 
-  ```
-  ---
-  - name: shopping list
-    type: vegetables
-    location: vegetables vendor outside hardware shop
-    priority: 1
-    items:
-      - onions:
-          size: small
-          shape: round
-          color: red
-          qty: 1.5kg
+      ```
+      ---
+      - name: shopping list
+        type: vegetables
+        location: vegetables vendor outside hardware shop
+        priority: 1
+        items:
+          - onions:
+              size: small
+              shape: round
+              color: red
+              qty: 1.5kg
 
-      - apple:
-          size: small
-          color: green
-          qty: 10
-  ...
-  ```
-## Anatomy of a Playbook
+          - apple:
+              size: small
+              color: green
+              qty: 10
+      ...
+      ```
+  ## Anatomy of a Playbook
 
   ### Plays Structure
 
@@ -131,7 +131,7 @@
 
     supports `sudo, su, pfexec, doas, pbrun, dzdo, ksu` and others
 
-    
+
 
 ## Writing a Playbook
 
