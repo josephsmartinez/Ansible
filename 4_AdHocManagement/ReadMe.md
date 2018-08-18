@@ -219,7 +219,7 @@ ansible 'prod[0:3]' -m ping
 ansible 'prod[2:]' -m ping
 ```
 ### RUNNING ON ONE HOST AT A TIME
-`ansible all -f l -a "free"`
+`ansible all -a "free"`
 
 ### RUNNING ADHOC COMMANDS
 ```
