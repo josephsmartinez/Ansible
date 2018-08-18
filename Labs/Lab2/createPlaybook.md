@@ -1,6 +1,6 @@
-## Problem Statement
+# Problem Statement
 
-You have to create a playbook for base systems
+###You have to create a playbook for base systems
 configuration. Common configurations for all hosts are,
 
 - **admin** user should be present with uid **5001**

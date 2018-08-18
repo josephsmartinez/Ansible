@@ -170,7 +170,7 @@ Multi Line Tasks (YAML)
 # Writing a Playbook
 PLEASE SEE LAB 2
 
-# Validating and Applying Ansible Playbook
+# Validating, Troubleshooting, Applying Ansible Playbook
 
 Command for testing and running **Playbooks**
 
@@ -198,6 +198,10 @@ List Tasks
 List Tags
 - `ansible-playbook playbook.yml --list-tag`
 
-# Troubleshooting Playbooks Failures
 # Adding another play for app servers
+
+Please review Lab3
+
 # Nano Project: Create a playbook to deploy a static site
+
+Please review Lab 4
