@@ -55,7 +55,7 @@ When apply applying configuration to all the node, you will call `site.yml`
 - Serves as a source to **reference** to learn best practices
 
 ### Creating Roles with Galaxy
-`ansible-galaxy init --init-path role/apache`
+`ansible-galaxy init --init-path=roles apache`
 `ansible-galaxy --help`
 
 # Create a role for Apache
