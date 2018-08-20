@@ -116,15 +116,69 @@ Creating Playbook for App
 - As per our strategy, we are going to create a playbook for each layer
 - let us begin by writing app.yml for app servers to apply apache role
 - apache role will in turn point to main.yml
-- main.yml will then execute all included tasks from install.yml and start.yml
-
-
-
-
+- main.yml will then execute all included tasks from  install.yml and start.yml
 
 # Copying config file, notifications, and handlers
+```
+roles
+|--apache
+|   |--tasks
+|   |--main.yml
+|   |--install.yml
+|   |--config.yml
+|   `--service.yml
+|--files
+    |--httpd.conf
+```
+- In addition to installing and starting services, we also need to copy configuration file for apache
+- To manage centrally, files are stored in its own dedicated **files** directory inside roles
+- in addition, **task** to copy the files from inside roles to appropriate destination need to be created. Let's write **config.yml** to do this
+- Which will then be added to **main.yml** just like other two task files we created earlier
+
+NOTE: We must account situations when config files are edited and services must restart. Case: Changing a port on the firewall settings, require that firewall services are restarted. **We need handlers**
+
+### Adding a Handler
+- Just like task and files, handles have their own dedicated directory.
+- Inside which you may already find main.yml
+- You could add handler to restart apache here
+- Handler will get triggered only when notified
+```
+roles
+|--apache
+|   |--tasks
+|   |--main.yml
+|   |--install.yml
+|   |--config.yml
+|   `--service.yml
+|--files
+|   |--httpd.conf
+|   `--index.html
+|--handlers
+|   `--main.yml
+```
+### Handler format
+Here is an example handlers file. As a review, handlers are only fired when certain tasks report changes, and are run at the end of each play:
+
+Example 1
+```
+---
+# handlers file for apache
+  - name: Restart apache service
+    service: name=httpd state=restarted
+```
+Example 2
+```
+---
+# file: roles/common/handlers/main.yml
+- name: restart ntpd
+  service:
+    name: ntpd
+    state: restarted
+```
+[Playbook Best Practices]https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html?highlight=handlers
 
 # Create a role for PHP
+ Please review Lab6
 
 # Nested roles and site wide playbook
 
