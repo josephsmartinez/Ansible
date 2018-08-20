@@ -181,5 +181,7 @@ Example 2
  Please review Lab6
 
 # Nested roles and site wide playbook
+Please review Lab7
 
 # Nano project: Deploy DevOps Demo App
+Please review Lab8
