@@ -105,7 +105,22 @@ roles
    `--service.yml
 ```
 
+### Writing a Main Task
+File: roles/apache/tasks/main.yml
+- when you call a role from playbookm it includes only **main.yml** task file
+- if you create additional task files, the only way to have those called is by including in **main.yml**
+- lets include install.yml and service.yml in main.yml apache role
+
 # Writing a applying playbook for servers
+Creating Playbook for App
+- As per our strategy, we are going to create a playbook for each layer
+- let us begin by writing app.yml for app servers to apply apache role
+- apache role will in turn point to main.yml
+- main.yml will then execute all included tasks from install.yml and start.yml
+
+
+
+
 
 # Copying config file, notifications, and handlers
 
