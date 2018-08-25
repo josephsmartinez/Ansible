@@ -22,6 +22,30 @@ config => template
 - Fast
 - Commonly used by Python based automation tools such as ansible, fabric, slat.
 
+### Jinja Templating
+Your container.yml may contain Jinja variables and expressions indicated using the default delimiters as follows:
+- `{% ... %}` for control statements
+- `{{ ... }}` for expressions
+- `{# ... #}` for comments
+
+Here’s an example container.yml containing Jinja expressions:
+```
+version: "1"
+services:
+  web:
+    image: '{{ web_image }}'
+    ports: '{{ web_ports }}'
+    command: ['sleep', '10']
+    dev_overrides:
+        environment:
+        - DEBUG='{{ debug }}'
+registries: {}
+```
+
+
+[Jinja2](http://jinja.pocoo.org/docs/dev/)
+[Jinia Templating](https://docs.ansible.com/ansible-container/container_yml/template.html)
+
 ### JINJA2
 - Contains regular text with dynamic fragments, marked with special tags
 - Dynamic fragments are either variables or python code, which is executed at the run time, creating the resulting text files.
@@ -67,6 +91,34 @@ mysql:
 --or--
 {{ mysql.port }}
 ```
+### Variable File Separation
+It’s a great idea to keep your playbooks under source control, but you may wish to make the playbook source public while keeping certain important variables private. Similarly, sometimes you may just want to keep certain information in different files, away from the main playbook.
+
+You can do this by using an external variables file, or files, just like this:
+```
+---
+- hosts: all
+  remote_user: root
+  vars:
+    favcolor: blue
+  vars_files:
+    - /vars/external_vars.yml
+
+  tasks:
+
+  - name: this is just a placeholder
+    command: /bin/echo foo
+```
+This removes the risk of sharing sensitive data with others when sharing your playbook source with them.
+
+The contents of each variables file is a simple YAML dictionary, like this:
+```
+---
+# in the above example, this would be vars/external_vars.yml
+somevar: somevalue
+password: magic
+```
+[Variables and File Separation](https://docs.ansible.com/ansible/2.5/user_guide/playbooks_variables.html#variable-file-separation)
 ### Variable Precedence
 -e switch           ^
 role Vars           |
@@ -76,9 +128,6 @@ group vars          |
 role defaults       |
 
 ## Advanced vars concepts
-
-
-
 
 ## Dynamically defining app version with and tasks
 
