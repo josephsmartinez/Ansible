@@ -134,7 +134,23 @@ role defaults       |
 ## Managing app configs with templates and vars
 
 ## Playing with vars precedence
+https://schoolofdevops.github.io/ultimate-ansible-bootcamp/templates_and_variables/#beyond-defaults-playing-with-vars-precedence
+
+dump check
+```
+ansible-config dump
+ansible-config dump | grep -i hash
+```
+
 
 ## Registered variables and conditional execution
 
 ## Discovering facts with setup modules
+Setup module and filter 
+```
+ansible all -m setup -a "filter=ansible_os_family"
+```
+Dump all node facts within /tmp/facts
+```
+ansible -m setup --tree /tmp/facts
+```

@@ -30,3 +30,25 @@ At the product level, Ansible matches Red Hat’s desire to deliver a frictionle
 - Ansible supports multi-tier deployments
 - Ansible brings consistency at multiple layers of the architecture
 - Ansible supports heterogeneous IT environments
+
+# Synopsys about this project
+This course lead by Gourav Shah founder of School of DevOps.
+
+## Contents:
+- Setup an inventory of group of servers and configure ansible to manage
+- Write playbook for base systems configuration
+- Create roles for automating web server provisioning and configurations
+- Use galaxy roles to setup a load balancer
+- Customize roles using group_vars to define your database and  application configurations
+- Secure database passwords with ansible vault
+- Deploy applications in rolling manner with zero downtime
+https://www.schoolofdevops.net/
+
+### Http address to container hosting web application
+```
+http://142.93.75.12/app/
+http://142.93.75.12:81/app
+http://142.93.75.12:81/app/prefs.php
+http://142.93.75.12:82/app
+http://142.93.75.12:82/app/prefs.php
+```

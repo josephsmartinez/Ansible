@@ -18,7 +18,7 @@ Proxy Used
 ## Applying HAProxy role with custom properties
 
 ## Troubleshooting HAProxy issues
-
+http://142.93.75.12/app/
 ## Nano Project: Seup MySQL DB using a galaxy role
 
 ## Setting up MySQL
