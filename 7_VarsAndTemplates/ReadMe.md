@@ -13,7 +13,7 @@ data [-]  vars        apache_port = 80
 
 - Way to generate dynamic configurations
 - Ansible uses Jinja2 template engine
-- Along with Varible, can be used to create flexible roles
+- Along with Variable, can be used to create flexible roles
 
 config => template
 
@@ -128,6 +128,54 @@ group vars          |
 role defaults       |
 
 ## Advanced vars concepts
+- Example using vars within roles  
+- The variables within this role's tasks/main.yml come from defaults and the config file resides within templates  
+```
+---
+# tasks file for frontend
+
+- name: create app directory
+  file:
+    path: /opt/app
+    owner: apache
+    group: apache
+    mode: 0755
+    state: directory
+
+- name: create release path
+  file:
+    path: /opt/app/release
+    owner: apache
+    group: apache
+    mode: 0755
+    state: directory
+
+- name: Download and extract the release
+  unarchive:
+    src: https://github.com/devopsdemoapps/devops-demo-app/archive/{{ app.version }}.tar.gz
+    dest: /opt/app/release
+    owner: apache
+    group: apache
+    creates: /opt/app/release/devops-demo-app-{{ app.version }}
+    remote_src: yes
+
+- name: create a symlink
+  file:
+    src: /opt/app/release/devops-demo-app-{{ app.version }}
+    dest: /var/www/html/app
+    owner: apache
+    group: apache
+    state: link
+
+- name: add application configs
+  template:
+    src: config.ini.j2
+    dest: /var/www/html/app/config.ini
+    owner: apache
+    group: apache
+    mode: 0644
+
+```
 
 ## Dynamically defining app version with and tasks
 
@@ -146,7 +194,7 @@ ansible-config dump | grep -i hash
 ## Registered variables and conditional execution
 
 ## Discovering facts with setup modules
-Setup module and filter 
+Setup module and filter
 ```
 ansible all -m setup -a "filter=ansible_os_family"
 ```

@@ -54,7 +54,7 @@ When apply applying configuration to all the node, you will call `site.yml`
 - No need to reinvent the wheel. Reuse and share roles
 - Serves as a source to **reference** to learn best practices
 
-### Creating Roles with Galaxy
+### Creating Roles with Galaxy | Scaffolding a Customer Role
 `ansible-galaxy init --init-path=roles apache`
 `ansible-galaxy --help`
 
