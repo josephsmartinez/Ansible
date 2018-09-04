@@ -42,8 +42,32 @@ roles/systems/task/main.yml
 
 
 ## Using conditionals in task and templates
+Example from `/roles/apache/task/main.yml`
+```
+---
+# tasks file for apache
+- import_tasks: install.yml
+  when: ansible_os_family == 'RedHat'
+- import_tasks: service.yml
+- import_tasks: config.yml
+```
 ## Adding Ubuntu support by including vars
+
+Limit the execution to a specific  
+`ansible-playbook app.yml --skip-tags=config --limit app3`
+Example of /apache/tasks/main.yml  
+```
+---
+# tasks file for apache
+- include_vars: "{{ ansible_os_family }}.yml "
+- import_tasks: install.yml
+- import_tasks: service.yml
+- import_tasks: config.yml
+```
+
 ## Making application compatible with Ubuntu
+
+**REDO THIS SECTION AND RESLOVE PENDING ISSUES**
 
 Resources:
 Conditionals    
@@ -57,3 +81,6 @@ https://ansible-manual.readthedocs.io/en/latest/playbooks_loops.html
 
 Defaulting Undefined Values
 https://docs.ansible.com/ansible/2.5/user_guide/playbooks_filters.html#defaulting-undefined-variables
+
+List of behavioral inventory parameters
+https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
